@@ -16,7 +16,7 @@ module WHMCS
     # * <tt>:domaintype</tt> - set for domain registration - register or transfer
     # * <tt>:regperiod</tt> - 1,2,3,etc...
     # * <tt>:dnsmanagement</tt> - true to enable
-    # * <tt>:emailforwarding - true to enable
+    # * <tt>:emailforwarding</tt> - true to enable
     # * <tt>:idprotection</tt> - true to enable
     # * <tt>:eppcode</tt> - if transfer
     # * <tt>:nameserver1</tt> - first nameserver (req for domain reg only)
