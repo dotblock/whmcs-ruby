@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    whmcs-ruby (0.0.1)
+      crack (= 0.1.8)
+
+GEM
+  specs:
+    crack (0.1.8)
+    shoulda (2.11.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  shoulda
+  whmcs-ruby!
