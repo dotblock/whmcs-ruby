@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>WHMCS::Misc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            WHMCS::Misc 
+            
+                <span class="parent">&lt; 
+                    
+                    Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/whmcs/misc_rb.html">lib/whmcs/misc.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+The <a href="Misc.html">WHMCS::Misc</a> class contains miscelaneous WHMCS
+API functions
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>D</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000039">decrypt_password</a>,</li>
+                
+                <li><a href="#M000025">domain_whois</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>E</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000038">encrypt_password</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>G</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000026">get_activity_log</a>,</li>
+                
+                <li><a href="#M000029">get_admin_details</a>,</li>
+                
+                <li><a href="#M000031">get_currencies</a>,</li>
+                
+                <li><a href="#M000033">get_email_templates</a>,</li>
+                
+                <li><a href="#M000032">get_promotions</a>,</li>
+                
+                <li><a href="#M000036">get_staff_online</a>,</li>
+                
+                <li><a href="#M000037">get_stats</a>,</li>
+                
+                <li><a href="#M000035">get_todo_item_statuses</a>,</li>
+                
+                <li><a href="#M000034">get_todo_items</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000030">update_admin_notes</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000039">
+                    
+                    <a name="M000039"></a><b>decrypt_password</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Decrypt a string with the WHMCS algorithm
+</p>
+<p>
+NOTE: This cannot be used to decrypt the clients password.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:password2</tt> - should contain the string you want decrypting
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Decrypt_Password">wiki.whmcs.com/API:Decrypt_Password</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000039_source')" id="l_M000039_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L163" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000039_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 163</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">decrypt_password</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'decryptpassword'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000025">
+                    
+                    <a name="M000025"></a><b>domain_whois</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Perform a whois lookup for a domain name
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:domain</tt> - the domain to check
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Domain_WHOIS">wiki.whmcs.com/API:Domain_WHOIS</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000025_source')" id="l_M000025_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L14" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000025_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 14</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">domain_whois</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'domainwhois'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000038">
+                    
+                    <a name="M000038"></a><b>encrypt_password</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Encrypt a password with the WHMCS algorithm
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:password2</tt> - should contain the string you want encrypting
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Encrypt_Password">wiki.whmcs.com/API:Encrypt_Password</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000038_source')" id="l_M000038_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L147" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000038_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 147</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">encrypt_password</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'encryptpassword'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000026">
+                    
+                    <a name="M000026"></a><b>get_activity_log</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get activity log
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:limitstart</tt> - Which User ID to start at (default = 0)
+
+</li>
+<li><tt>:limitnum</tt> - Limit by number (default = 25)
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Activity_Log">wiki.whmcs.com/API:Get_Activity_Log</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L29" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000026_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 29</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_activity_log</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getactivitylog'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000029">
+                    
+                    <a name="M000029"></a><b>get_admin_details</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get administrator details
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Admin_Details">wiki.whmcs.com/API:Get_Admin_Details</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L39" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000029_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 39</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_admin_details</span>
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getadmindetails'</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000031">
+                    
+                    <a name="M000031"></a><b>get_currencies</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get allowed currencies
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Currencies">wiki.whmcs.com/API:Get_Currencies</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000031_source')" id="l_M000031_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L62" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000031_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 62</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_currencies</span>
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getcurrencies'</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000033">
+                    
+                    <a name="M000033"></a><b>get_email_templates</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get email templates
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:type</tt> - optional - from
+product,domain,support,general,invoice,affiliate
+
+</li>
+<li><tt>:language</tt> - optional - only required for additional languages
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Email_Templates">wiki.whmcs.com/API:Get_Email_Templates</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000033_source')" id="l_M000033_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L92" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000033_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 92</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_email_templates</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getemailtemplates'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000032">
+                    
+                    <a name="M000032"></a><b>get_promotions</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get promotions
+</p>
+<p>
+Note: WHMCS has this listed under <a href="Misc.html">Misc</a> as well as
+invoices. It&#8217;s aliased here for consistancy with their API docs
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:code</tt> - the specific promotion code to return information for
+(optional)
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Promotions">wiki.whmcs.com/API:Get_Promotions</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000032_source')" id="l_M000032_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L78" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000032_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 78</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_promotions</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-constant">Invoice</span>.<span class="ruby-identifier">get_promotions</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000036">
+                    
+                    <a name="M000036"></a><b>get_staff_online</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get staff online
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Staff_Online">wiki.whmcs.com/API:Get_Staff_Online</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000036_source')" id="l_M000036_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L125" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000036_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 125</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_staff_online</span>
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getstaffonline'</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000037">
+                    
+                    <a name="M000037"></a><b>get_stats</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get stats
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Stats">wiki.whmcs.com/API:Get_Stats</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000037_source')" id="l_M000037_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L134" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000037_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 134</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_stats</span>
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getstats'</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000035">
+                    
+                    <a name="M000035"></a><b>get_todo_item_statuses</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get configured todo item statuses
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_To-Do_Items_Statuses">wiki.whmcs.com/API:Get_To-Do_Items_Statuses</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000035_source')" id="l_M000035_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L116" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000035_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 116</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_todo_item_statuses</span>
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'gettodoitemstatuses'</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000034">
+                    
+                    <a name="M000034"></a><b>get_todo_items</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get todo items
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:status</tt> - optional - from New,Pending,In
+Progress,Completed,Postponed
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_To-Do_Items">wiki.whmcs.com/API:Get_To-Do_Items</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000034_source')" id="l_M000034_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L106" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000034_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 106</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_todo_items</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'gettodoitems'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000030">
+                    
+                    <a name="M000030"></a><b>update_admin_notes</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Update administrator notes
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:notes</tt> - notes to enter
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Update_Admin_Notes">wiki.whmcs.com/API:Update_Admin_Notes</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/misc.rb#L52" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000030_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/misc.rb, line 52</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">update_admin_notes</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updateadminnotes'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

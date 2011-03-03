@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>WHMCS::Base</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            WHMCS::Base 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/whmcs/base_rb.html">lib/whmcs/base.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="Base.html">WHMCS::Base</a> is the main class used to subclass
+WHMCS API resources
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>P</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000001">parse_response</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>S</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000000">send_request</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000001">
+                    
+                    <a name="M000001"></a><b>parse_response</b>(raw)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Converts the API response to a Hash
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/base.rb#L41" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000001_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/base.rb, line 41</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">raw</span>)
+      <span class="ruby-keyword kw">return</span> {} <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">blank?</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/xml version/</span>)
+        <span class="ruby-constant">Crack</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">raw</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">raw</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">';'</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'='</span>) }]
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000000">
+                    
+                    <a name="M000000"></a><b>send_request</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Sends an API request to the WHMCS API
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:action</tt> - The API action to perform
+
+</li>
+</ul>
+<p>
+All other paramters are passed along as HTTP POST variables
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/base.rb#L15" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000000_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/base.rb, line 15</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:action</span>].<span class="ruby-identifier">blank?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;No API action set&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(
+        <span class="ruby-identifier">:username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">WHMCS</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">api_username</span>,
+        <span class="ruby-identifier">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">WHMCS</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">api_password</span>
+      )
+
+      <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">WHMCS</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">api_url</span>)
+
+      <span class="ruby-identifier">http</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span>)
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span> <span class="ruby-operator">==</span> <span class="ruby-value">443</span>
+        <span class="ruby-identifier">http</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">url</span>.<span class="ruby-identifier">path</span>)
+      <span class="ruby-identifier">req</span>.<span class="ruby-identifier">set_form_data</span>(<span class="ruby-identifier">params</span>)
+
+      <span class="ruby-identifier">res</span> = <span class="ruby-identifier">http</span>.<span class="ruby-identifier">start</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span> <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">req</span>) }
+      <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>WHMCS::Invoice</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            WHMCS::Invoice 
+            
+                <span class="parent">&lt; 
+                    
+                    Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/whmcs/invoice_rb.html">lib/whmcs/invoice.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="Invoice.html">WHMCS::Invoice</a> is the class for managing
+invoices
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000023">add_billable_item</a>,</li>
+                
+                <li><a href="#M000024">add_credit</a>,</li>
+                
+                <li><a href="#M000021">add_invoice_payment</a>,</li>
+                
+                <li><a href="#M000027">add_transaction</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>C</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000022">capture_payment</a>,</li>
+                
+                <li><a href="#M000019">create_invoice</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>G</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000018">get_invoice</a>,</li>
+                
+                <li><a href="#M000017">get_invoices</a>,</li>
+                
+                <li><a href="#M000028">get_payment_methods</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000020">update_invoice</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000023">
+                    
+                    <a name="M000023"></a><b>add_billable_item</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Add a new billable item
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:clientid</tt>
+
+</li>
+<li><tt>:description</tt>
+
+</li>
+<li><tt>:amount</tt>
+
+</li>
+<li><tt>:recur</tt> - frequency to recur - 1,2,3,etc...
+
+</li>
+<li><tt>:recurcycle</tt> - Days, Weeks, Months or Years
+
+</li>
+<li><tt>:recurfor</tt> - number of times to repeat
+
+</li>
+<li><tt>:invoiceaction</tt> - noinvoice, nextcron, nextinvoice, duedate, recur
+
+</li>
+<li><tt>:duedate</tt> - date the invoice should be due
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Add_Billable_Item">wiki.whmcs.com/API:Add_Billable_Item</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L143" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000023_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 143</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_billable_item</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'addbillableitem'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000024">
+                    
+                    <a name="M000024"></a><b>add_credit</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Add a credit to client&#8217;s account
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:clientid</tt> - the ID of the client the credit is to be added to
+
+</li>
+<li><tt>:description</tt> - reason for credit being added (stored in admin
+credit log)
+
+</li>
+<li><tt>:amount</tt> - the amount to be added
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Add_Credit">wiki.whmcs.com/API:Add_Credit</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L159" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000024_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 159</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_credit</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'addcredit'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000021">
+                    
+                    <a name="M000021"></a><b>add_invoice_payment</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Add an invoice payment
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:invoiceid</tt> - should contact the ID number of the invoice to add
+the payment to
+
+</li>
+<li><tt>:transid</tt> - should contain the transaction number for the payment
+
+</li>
+<li><tt>:amount</tt> - should contact the amount paid, can be left blank to
+take full amount of invoice
+
+</li>
+<li><tt>:fees</tt> - optional, if set defines how much fees were involved in
+the transaction
+
+</li>
+<li><tt>:gateway</tt> - should contain the gateway used in system name format,
+eg. paypal, authorize, etc...
+
+</li>
+<li><tt>:noemail</tt> - set to true to not send an email if the payment marks
+the invoice paid
+
+</li>
+<li><tt>:date</tt> - optional, if set defines the date the payment was made
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Add_Invoice_Payment">wiki.whmcs.com/API:Add_Invoice_Payment</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L107" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000021_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 107</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_invoice_payment</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'addinvoicepayment'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000027">
+                    
+                    <a name="M000027"></a><b>add_transaction</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Add transaction
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:userid</tt> - Optional Add Transaction to a user
+
+</li>
+<li><tt>:invoiceid</tt> - Optional Add transaction to a particular invoice
+
+</li>
+<li><tt>:description</tt> - Description of the transaction
+
+</li>
+<li><tt>:amountin</tt> - amount to add to the account
+
+</li>
+<li><tt>:amountout</tt> - if an outgoing enter this
+
+</li>
+<li><tt>:fees</tt> - transaction fee you were charged
+
+</li>
+<li><tt>:paymentmethod</tt> - gateway used in WHMCS
+
+</li>
+<li><tt>:transid</tt> - Transaction ID you wish to assign
+
+</li>
+<li><tt>:date</tt> - date of transaction (same format as your WHMCS eg
+DD/MM/YYYY)
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Add_Transaction">wiki.whmcs.com/API:Add_Transaction</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L181" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000027_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 181</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_transaction</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'addtransaction'</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000022">
+                    
+                    <a name="M000022"></a><b>capture_payment</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Attempt to capture payment for an invoice
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:invoiceid</tt> - the ID of the invoice the capture is to be attempted
+for
+
+</li>
+<li><tt>:cvv</tt> - optionally can be used to pass the cards verification value
+in the payment request
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Capture_Payment">wiki.whmcs.com/API:Capture_Payment</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L122" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000022_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 122</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">capture_payment</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'capturepayment'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000019">
+                    
+                    <a name="M000019"></a><b>create_invoice</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Create a new invoice
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:userid</tt> - should contain the user id of the client you wish to
+create the invoice for
+
+</li>
+<li><tt>:date</tt> - the date the invoice is created in the format YYYYMMDD
+
+</li>
+<li><tt>:duedate</tt> - the date the invoice is due in the format YYYYMMDD
+
+</li>
+<li><tt>:taxrate</tt> - the rate of tax that should be charged
+
+</li>
+<li><tt>:paymentmethod</tt> - the payment method for the invoice eg.
+banktransfer
+
+</li>
+<li><tt>:notes</tt> - any additional notes the invoice should display to the
+customer
+
+</li>
+<li><tt>:sendinvoice</tt> - set to true to send the &#8220;<a
+href="Invoice.html">Invoice</a> Created&#8221; email to the customer
+
+</li>
+<li><tt>:itemdescription1</tt> - item 1 description
+
+</li>
+<li><tt>:itemamount1</tt> - item 1 amount
+
+</li>
+<li><tt>:itemtaxed1</tt> - set to true if item 1 should be taxed
+
+</li>
+<li><tt>:itemdescription2</tt> - item 2 description
+
+</li>
+<li><tt>:itemamount2</tt> - item 2 amount
+
+</li>
+<li><tt>:itemtaxed2</tt> - set to true if item 2 should be taxed
+
+</li>
+</ul>
+<p>
+etc...
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Create_Invoice">wiki.whmcs.com/API:Create_Invoice</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L60" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000019_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 60</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_invoice</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'createinvoice'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000018">
+                    
+                    <a name="M000018"></a><b>get_invoice</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get an invoice
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:invoiceid</tt> - should be the invoice id you wish to retrieve
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Invoice">wiki.whmcs.com/API:Get_Invoice</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L31" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000018_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 31</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_invoice</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getinvoice'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000017">
+                    
+                    <a name="M000017"></a><b>get_invoices</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get invoices
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:userid</tt> - the client ID to retrieve invoices for
+
+</li>
+<li><tt>:status</tt> - the status to filter for, Paid, Unpaid, Cancelled,
+etc...
+
+</li>
+<li><tt>:limitstart</tt> - the offset number to start at when returning matches
+(optional, default 0)
+
+</li>
+<li><tt>:limitnum</tt> - the number of records to return (optional, default 25)
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Invoices">wiki.whmcs.com/API:Get_Invoices</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L17" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000017_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 17</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_invoices</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getinvoices'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000028">
+                    
+                    <a name="M000028"></a><b>get_payment_methods</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get configured payment methods
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Payment_Methods">wiki.whmcs.com/API:Get_Payment_Methods</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L190" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000028_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 190</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_payment_methods</span>
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getpaymentmethods'</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000020">
+                    
+                    <a name="M000020"></a><b>update_invoice</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Update an existing invoice
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:invoiceid</tt> - The ID of the invoice to update
+
+</li>
+<li><tt>:itemdescription</tt> - Array of existing line item descriptions to
+update. Line ID from database needed
+
+</li>
+<li><tt>:itemamount</tt> - Array of existing line item amounts to update
+
+</li>
+<li><tt>:itemtaxed</tt> - Array of existing line items taxed or not
+
+</li>
+<li><tt>:newitemdescription</tt> - Array of new line item descriptipons to add
+
+</li>
+<li><tt>:newitemamount</tt> - Array of new line item amounts
+
+</li>
+<li><tt>:newitemtaxed</tt> - Array of new line items taxed or not
+
+</li>
+<li><tt>:date</tt> - date of invoice format yyyymmdd
+
+</li>
+<li><tt>:duedate</tt> - duedate of invoice format yyyymmdd
+
+</li>
+<li><tt>:datepaid</tt> - date invoice was paid format yyyymmdd
+
+</li>
+<li><tt>:status</tt> - status of invoice. Unpaid, Paid, Cancelled, Collection,
+Refunded
+
+</li>
+<li><tt>:paymentmethod</tt> - payment method of invoice eg paypal, banktransfer
+
+</li>
+</ul>
+<p>
+Other than invoiceid, no other fields are required
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Update_Invoice">wiki.whmcs.com/API:Update_Invoice</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/invoice.rb#L87" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000020_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/invoice.rb, line 87</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">update_invoice</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updateinvoice'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

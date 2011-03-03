@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.markdown</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            README.markdown
+        </h1>
+        <ul class="files">
+            <li>README.markdown</li>
+            <li>Last modified: Wed Mar 02 20:51:22 -0500 2011</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h1>whmcs-ruby</h1>
+
+<p>whmcs-ruby provides Ruby bindings for the <a href="http://wiki.whmcs.com/API:Functions">WHMCS API</a>.</p>
+
+<h2>Usage</h2>
+
+<pre><code>require 'whmcs'
+
+WHMCS.configure do |config|
+  config.api_url      = 'http://example.com/includes/api.php'
+  config.api_username = 'someusername'
+  config.api_password = 'c4ca4238a0b923820dcc509a6f75849b' # md5 hash
+end
+
+WHMCS::Client.get_clients_details(:clientid =&gt; '1')
+</code></pre>
+
+<p>See the <a href="http://dotblock.github.com/whmcs-ruby/">documentation</a> for more
+details.</p>
+
+<h2>Installation</h2>
+
+<pre><code>gem install whmcs-ruby
+</code></pre>
+
+<h2>Copyright</h2>
+
+<p>Copyright (c) 2011 DotBlock.com, see LICENSE in this repo for details.</p>
+<script type="text/javascript">$(function() {
+  $('a').each(function() { $(this).attr('target', '_blank') })
+})</script>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

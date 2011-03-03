@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>WHMCS::Ticket</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            WHMCS::Ticket 
+            
+                <span class="parent">&lt; 
+                    
+                    Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/whmcs/ticket_rb.html">lib/whmcs/ticket.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="Ticket.html">WHMCS::Ticket</a> is the class for managing support
+tickets
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000064">add_ticket_note</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>D</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000065">delete_ticket</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>G</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000066">get_support_departments</a>,</li>
+                
+                <li><a href="#M000067">get_support_statuses</a>,</li>
+                
+                <li><a href="#M000062">get_ticket</a>,</li>
+                
+                <li><a href="#M000068">get_ticket_predefined_cats</a>,</li>
+                
+                <li><a href="#M000069">get_ticket_predefined_repies</a>,</li>
+                
+                <li><a href="#M000061">get_tickets</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>O</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000059">open_ticket</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>R</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000060">reply_ticket</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000063">update_ticket</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000064">
+                    
+                    <a name="M000064"></a><b>add_ticket_note</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Add a note to an existing ticket
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:ticketid</tt> - <a href="Ticket.html">Ticket</a> ID the note is to be
+added
+
+</li>
+<li><tt>:message</tt> - The not to add
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Add_Ticket_Note">wiki.whmcs.com/API:Add_Ticket_Note</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000064_source')" id="l_M000064_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L107" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000064_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 107</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_ticket_note</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'addticketnote'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000065">
+                    
+                    <a name="M000065"></a><b>delete_ticket</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Delete an existing ticket
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:ticketid</tt> - <a href="Ticket.html">Ticket</a> ID to be deleted
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Delete_Ticket">wiki.whmcs.com/API:Delete_Ticket</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000065_source')" id="l_M000065_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L121" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000065_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 121</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">delete_ticket</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'deleteticket'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000066">
+                    
+                    <a name="M000066"></a><b>get_support_departments</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get support departments
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Support_Departments">wiki.whmcs.com/API:Get_Support_Departments</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000066_source')" id="l_M000066_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L131" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000066_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 131</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_support_departments</span>
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getsupportdepartments'</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000067">
+                    
+                    <a name="M000067"></a><b>get_support_statuses</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get support statuses
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:deptid</tt> - Optional - Send a Department ID to limit results
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Support_Statuses">wiki.whmcs.com/API:Get_Support_Statuses</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000067_source')" id="l_M000067_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L144" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000067_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 144</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_support_statuses</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getsupportstatuses'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000062">
+                    
+                    <a name="M000062"></a><b>get_ticket</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get a ticket
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:ticketid</tt> - <a href="Ticket.html">Ticket</a> id to retrieve
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Ticket">wiki.whmcs.com/API:Get_Ticket</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000062_source')" id="l_M000062_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L75" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000062_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 75</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_ticket</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getticket'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000068">
+                    
+                    <a name="M000068"></a><b>get_ticket_predefined_cats</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get ticket predefined categories
+</p>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Ticket_Predefined_Cats">wiki.whmcs.com/API:Get_Ticket_Predefined_Cats</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000068_source')" id="l_M000068_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L154" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000068_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 154</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_ticket_predefined_cats</span>
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getticketpredefinedcats'</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000069">
+                    
+                    <a name="M000069"></a><b>get_ticket_predefined_repies</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get ticket predefined replies
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:catid</tt> - Optional Select category to browse
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Ticket_Predefined_Replies">wiki.whmcs.com/API:Get_Ticket_Predefined_Replies</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000069_source')" id="l_M000069_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L167" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000069_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 167</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_ticket_predefined_repies</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getsupportstatuses'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000061">
+                    
+                    <a name="M000061"></a><b>get_tickets</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Get tickets
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:limitstart</tt> - Optional start at which result (default 0)
+
+</li>
+<li><tt>:limitnum</tt> - Optional limit at how many results (default 25)
+
+</li>
+<li><tt>:clientid</tt> - Optional search for a particular client&#8217;s
+tickets
+
+</li>
+<li><tt>:deptid</tt> - Optional search in a particular department
+
+</li>
+<li><tt>:status</tt> - Optional search a particular status
+
+</li>
+<li><tt>:subject</tt> - Optional search for a word in the subject
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Get_Tickets">wiki.whmcs.com/API:Get_Tickets</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000061_source')" id="l_M000061_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L61" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000061_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 61</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_tickets</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'gettickets'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000059">
+                    
+                    <a name="M000059"></a><b>open_ticket</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Open a new ticket
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:clientid</tt> - the ID of the client the ticket belongs to
+
+</li>
+<li><tt>:name</tt> - only required if not a registered client (clientid must be
+sent as 0)
+
+</li>
+<li><tt>:email</tt> - only required if not a registered client
+
+</li>
+<li><tt>:deptid</tt> - the ID of the ticket department
+
+</li>
+<li><tt>:subject</tt>
+
+</li>
+<li><tt>:message</tt>
+
+</li>
+<li><tt>:priority</tt> - can be &#8220;Low&#8221;, &#8220;Medium&#8221; or
+&#8220;High&#8220;
+
+</li>
+<li><tt>:serviceid</tt> - the ID if the ticket relates to a specific product
+
+</li>
+<li><tt>:customfields</tt> - a base 64 serialized array of field IDs => values
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Open_Ticket">wiki.whmcs.com/API:Open_Ticket</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000059_source')" id="l_M000059_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L22" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000059_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 22</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">open_ticket</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'openticket'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000060">
+                    
+                    <a name="M000060"></a><b>reply_ticket</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Reply to ticket
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:ticketid</tt> - the ID of the ticket to add the reply to
+
+</li>
+<li><tt>:clientid</tt> - if adding reply as a client
+
+</li>
+<li><tt>:name</tt> - only required if not a registered client (clientid must be
+sent as 0)
+
+</li>
+<li><tt>:email</tt> - only required if not a registered client
+
+</li>
+<li><tt>:adminusername</tt> - if adding reply as an admin, name to show
+
+</li>
+<li><tt>:message</tt>
+
+</li>
+<li><tt>:status</tt> - specify if you want to set the status to On Hold or In
+Progress after reply
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Reply_Ticket">wiki.whmcs.com/API:Reply_Ticket</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000060_source')" id="l_M000060_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L42" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000060_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 42</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">reply_ticket</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'addticketreply'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000063">
+                    
+                    <a name="M000063"></a><b>update_ticket</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Update an existing ticket
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:ticketid</tt> - <a href="Ticket.html">Ticket</a> ID to be updated
+
+</li>
+<li><tt>:subject</tt>
+
+</li>
+<li><tt>:priority</tt> - Low, Medium or High
+
+</li>
+<li><tt>:status</tt> - Open, Answered, Closed, etc...
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Update_Ticket">wiki.whmcs.com/API:Update_Ticket</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000063_source')" id="l_M000063_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/ticket.rb#L92" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000063_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/ticket.rb, line 92</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">update_ticket</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updateticket'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

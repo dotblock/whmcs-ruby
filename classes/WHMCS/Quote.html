@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>WHMCS::Quote</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            WHMCS::Quote 
+            
+                <span class="parent">&lt; 
+                    
+                    Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/whmcs/quote_rb.html">lib/whmcs/quote.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="Quote.html">WHMCS::Quote</a> is the class for managing quotes
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000058">accept_quote</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>C</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000046">create_quote</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>D</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000054">delete_quote</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>S</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000057">send_quote</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000053">update_quote</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000058">
+                    
+                    <a name="M000058"></a><b>accept_quote</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Accept a quote
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:quoteid</tt> - the id number of the quote in tblquotes
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Accept_Quote">wiki.whmcs.com/API:Accept_Quote</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000058_source')" id="l_M000058_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/quote.rb#L120" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000058_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/quote.rb, line 120</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">accept_quote</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'acceptquote'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000046">
+                    
+                    <a name="M000046"></a><b>create_quote</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Create a new quote
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:userid</tt> - the unique id number of the client in the tblclients
+table
+
+</li>
+<li><tt>:firstname</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:lastname</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:companyname</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:email</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:address1</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:address2</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:city</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:state</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:postcode</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:country</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:phonenumber</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:currency</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:subject</tt> - Subject of the quote
+
+</li>
+<li><tt>:stage</tt> - Draft,Delivered,On Hold,Accepted,Lost,Dead
+
+</li>
+<li><tt>:validuntil</tt> - In format set in Localisation
+
+</li>
+<li><tt>:datecreated</tt> - Optional - In format set in Localisation
+
+</li>
+<li><tt>:customernotes</tt> - notes that are viewable by the client
+
+</li>
+<li><tt>:adminnotes</tt> - notes that are admin only
+
+</li>
+<li><tt>:lineitems</tt> - a base64 encoded serialized array containing:
+
+</li>
+<li><tt>:desc</tt> - The line description
+
+</li>
+<li><tt>:qty</tt> - The quantity being quoted
+
+</li>
+<li><tt>:up</tt> - unit price
+
+</li>
+<li><tt>:discount</tt> - discount amount in %
+
+</li>
+<li><tt>:taxable</tt> - true or false
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Create_Quote">wiki.whmcs.com/API:Create_Quote</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000046_source')" id="l_M000046_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/quote.rb#L38" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000046_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/quote.rb, line 38</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_quote</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'createquote'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000054">
+                    
+                    <a name="M000054"></a><b>delete_quote</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Delete a quote
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:quoteid</tt> - the id number of the quote in tblquotes
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Delete_Quote">wiki.whmcs.com/API:Delete_Quote</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000054_source')" id="l_M000054_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/quote.rb#L92" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000054_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/quote.rb, line 92</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">delete_quote</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'deletequote'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000057">
+                    
+                    <a name="M000057"></a><b>send_quote</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Send a quote to client
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:quoteid</tt> - the id number of the quote in tblquotes
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Send_Quote">wiki.whmcs.com/API:Send_Quote</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000057_source')" id="l_M000057_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/quote.rb#L106" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000057_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/quote.rb, line 106</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send_quote</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'sendquote'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000053">
+                    
+                    <a name="M000053"></a><b>update_quote</b>(params = {})
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Update an existing quote
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+<li><tt>:quoteid</tt> - the id number of the quote in tblquotes
+
+</li>
+<li><tt>:userid</tt> - the unique id number of the client in the tblclients
+table
+
+</li>
+<li><tt>:firstname</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:lastname</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:companyname</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:email</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:address1</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:address2</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:city</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:state</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:postcode</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:country</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:phonenumber</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:currency</tt> - optional - only required if userid is not specified
+
+</li>
+<li><tt>:subject</tt> - Subject of the quote
+
+</li>
+<li><tt>:stage</tt> - Draft,Delivered,On Hold,Accepted,Lost,Dead
+
+</li>
+<li><tt>:validuntil</tt> - In format set in Localisation
+
+</li>
+<li><tt>:datecreated</tt> - Optional - In format set in Localisation
+
+</li>
+<li><tt>:customernotes</tt> - notes that are viewable by the client
+
+</li>
+<li><tt>:adminnotes</tt> - notes that are admin only
+
+</li>
+<li><tt>:lineitems</tt> - a base64 encoded serialized array containing:
+
+</li>
+<li><tt>:id</tt> - existing lineid only required to update existing lines
+
+</li>
+<li><tt>:desc</tt> - The line description
+
+</li>
+<li><tt>:qty</tt> - The quantity being quoted
+
+</li>
+<li><tt>:up</tt> - unit price
+
+</li>
+<li><tt>:discount</tt> - discount amount in %
+
+</li>
+<li><tt>:taxable</tt> - true or false
+
+</li>
+</ul>
+<p>
+See:
+</p>
+<p>
+<a
+href="http://wiki.whmcs.com/API:Update_Quote">wiki.whmcs.com/API:Update_Quote</a>
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show</a>
+                        
+                        | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/quote.rb#L78" target="_blank" class="github_url">on GitHub</a>
+                        
+                    </p>
+                    <div id="M000053_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/whmcs/quote.rb, line 78</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">update_quote</span>(<span class="ruby-identifier">params</span> = {})
+      <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updatequote'</span>)
+      <span class="ruby-identifier">send_request</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
