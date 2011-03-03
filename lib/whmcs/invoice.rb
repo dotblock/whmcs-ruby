@@ -179,7 +179,8 @@ module WHMCS
     #
     # http://wiki.whmcs.com/API:Add_Transaction
     def self.add_transaction(params = {})
-      send_request(params.merge(:action => 'addtransaction'))
+      params.merge!(:action => 'addtransaction')
+      send_request(params)
     end
 
     # Get configured payment methods
