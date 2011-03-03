@@ -58,7 +58,7 @@
                 
                 <li><a href="#M000002">add_client</a>,</li>
                 
-                <li><a href="#M000009">add_contact</a></li>
+                <li><a href="#M000008">add_contact</a></li>
                 
             </ul>
         </dd>
@@ -86,7 +86,7 @@
                 
                 <li><a href="#M000013">get_clients_products</a>,</li>
                 
-                <li><a href="#M000010">get_contacts</a></li>
+                <li><a href="#M000009">get_contacts</a></li>
                 
             </ul>
         </dd>
@@ -108,7 +108,7 @@
                 
                 <li><a href="#M000014">update_client_product</a>,</li>
                 
-                <li><a href="#M000011">update_contact</a></li>
+                <li><a href="#M000010">update_contact</a></li>
                 
             </ul>
         </dd>
@@ -254,9 +254,9 @@ href="http://wiki.whmcs.com/API:Add_Client">wiki.whmcs.com/API:Add_Client</a>
             </div>
             
             <div class="method">
-                <div class="title" id="M000009">
+                <div class="title" id="M000008">
                     
-                    <a name="M000009"></a><b>add_contact</b>(params = {})
+                    <a name="M000008"></a><b>add_contact</b>(params = {})
                     
                 </div>
                 
@@ -342,12 +342,12 @@ href="http://wiki.whmcs.com/API:Add_Contact">wiki.whmcs.com/API:Add_Contact</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000008_source')" id="l_M000008_source">show</a>
                         
                         | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/client.rb#L161" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000009_source" class="dyn-source">
+                    <div id="M000008_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/whmcs/client.rb, line 161</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_contact</span>(<span class="ruby-identifier">params</span> = {})
       <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'addcontact'</span>)
@@ -679,9 +679,9 @@ href="http://wiki.whmcs.com/API:Get_Clients_Products">wiki.whmcs.com/API:Get_Cli
             </div>
             
             <div class="method">
-                <div class="title" id="M000010">
+                <div class="title" id="M000009">
                     
-                    <a name="M000010"></a><b>get_contacts</b>(params = {})
+                    <a name="M000009"></a><b>get_contacts</b>(params = {})
                     
                 </div>
                 
@@ -754,12 +754,12 @@ href="http://wiki.whmcs.com/API:Get_Contacts">wiki.whmcs.com/API:Get_Contacts</a
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000010_source')" id="l_M000010_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show</a>
                         
                         | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/client.rb#L189" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000010_source" class="dyn-source">
+                    <div id="M000009_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/whmcs/client.rb, line 189</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_contacts</span>(<span class="ruby-identifier">params</span> = {})
       <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'getcontacts'</span>)
@@ -1055,9 +1055,9 @@ href="http://wiki.whmcs.com/API:Update_Client_Product">wiki.whmcs.com/API:Update
             </div>
             
             <div class="method">
-                <div class="title" id="M000011">
+                <div class="title" id="M000010">
                     
-                    <a name="M000011"></a><b>update_contact</b>(params = {})
+                    <a name="M000010"></a><b>update_contact</b>(params = {})
                     
                 </div>
                 
@@ -1148,12 +1148,12 @@ href="http://wiki.whmcs.com/API:Update_Contact">wiki.whmcs.com/API:Update_Contac
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000010_source')" id="l_M000010_source">show</a>
                         
                         | <a href="http://github.com/dotblock/whmcs-ruby/blob/9418f3b3c2b0afd54dffb2d0314c12d643f6e040/lib/whmcs/client.rb#L224" target="_blank" class="github_url">on GitHub</a>
                         
                     </p>
-                    <div id="M000011_source" class="dyn-source">
+                    <div id="M000010_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/whmcs/client.rb, line 224</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">update_contact</span>(<span class="ruby-identifier">params</span> = {})
       <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'updatecontact'</span>)
