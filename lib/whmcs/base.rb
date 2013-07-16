@@ -1,5 +1,6 @@
 require 'net/http'
 require 'net/https'
+require 'htmlentities'
 require 'crack'
 
 module WHMCS
@@ -34,7 +35,7 @@ module WHMCS
       req.set_form_data(params)
 
       res = http.start { |http| http.request(req) }
-      parse_response(res.body)
+      parse_response(HTMLEntities.new.decode(res.body))
     end
 
     # Converts the API response to a Hash
