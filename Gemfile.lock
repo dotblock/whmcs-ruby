@@ -3,10 +3,12 @@ PATH
   specs:
     whmcs-ruby (0.0.1)
       crack (= 0.1.8)
+      htmlentities (= 4.3.1)
 
 GEM
   specs:
     crack (0.1.8)
+    htmlentities (4.3.1)
     shoulda (2.11.3)
 
 PLATFORMS
