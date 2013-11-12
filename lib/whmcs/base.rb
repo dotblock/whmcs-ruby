@@ -22,6 +22,11 @@ module WHMCS
         :password => WHMCS.config.api_password
       )
 
+	  # alternative API access
+	  if( !WHMCS.config.api_access_key.nil? )
+		  params.merge!( :accesskey => WHMCS.config.api_access_key )
+	  end
+
       url = URI.parse(WHMCS.config.api_url)
 
       http = Net::HTTP.new(url.host, url.port)
