@@ -1,10 +1,11 @@
 PATH
   remote: .
   specs:
-    whmcs-ruby (0.0.1)
+    whmcs-ruby (0.0.2)
       crack (= 0.1.8)
 
 GEM
+  remote: http://rubygems.org/
   specs:
     crack (0.1.8)
     shoulda (2.11.3)
