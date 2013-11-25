@@ -16,6 +16,26 @@ module WHMCS
       send_request(params)
     end
 
+    # Update the nameservers for a domain name by either the domain's name or ID
+    #
+    # Parameters:
+    #
+    # * <tt>:domainid</tt> - the ID of the domain in WHMCS (this or the domain itself must be provided)
+    # * <tt>:domain</tt> - the actual domain name (e.g. foo.com) (this or the domain's ID must be provided)
+    # * <tt>:ns1</tt> - the first nameserver to set on the domain
+    # * <tt>:ns2</tt> - the second nameserver to set on the domain
+    # * <tt>:ns3</tt> - the third nameserver to set on the domain (optional)
+    # * <tt>:ns4</tt> - the fourth nameserver to set on the domain (optional)
+    # * <tt>:ns5</tt> - the fifth nameserver to set on the domain (optional)
+    #
+    # See:
+    #
+    # http://docs.whmcs.com/API:Domain_Update_Nameservers 
+    def self.domain_update_nameservers
+      params.merge!(:action => 'domainupdatenameservers')
+      send_request(params)
+    end
+
     # Get activity log
     #
     # Parameters:
