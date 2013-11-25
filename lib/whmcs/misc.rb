@@ -31,7 +31,7 @@ module WHMCS
     # See:
     #
     # http://docs.whmcs.com/API:Domain_Update_Nameservers 
-    def self.domain_update_nameservers
+    def self.domain_update_nameservers(params = {})
       params.merge!(:action => 'domainupdatenameservers')
       send_request(params)
     end
