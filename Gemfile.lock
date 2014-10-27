@@ -5,6 +5,7 @@ PATH
       crack (= 0.1.8)
 
 GEM
+  remote: http://rubygems.org/
   specs:
     crack (0.1.8)
     shoulda (2.11.3)

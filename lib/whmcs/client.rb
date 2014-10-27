@@ -322,5 +322,23 @@ module WHMCS
       params.merge!(:action => 'sendemail')
       send_request(params)
     end
+
+    # Get a list of domains for a client
+    #
+    # Parameters:
+    #
+    # * <tt>:clientid</tt> - the ID of the client to get domains for
+    # * <tt>:domainid</tt> - the ID of the domain to retrieve details for
+    # * <tt>:domain</tt> - the domain (i.e. foobar.com) to retrieve details for
+    # * <tt>:limitstart</tt> - record to start at, useful for pagination (default = 0)
+    # * <tt>:limitnum</tt> - number of records to return (default = 25)
+    # * <tt>:getnameservers</tt> - includes the domain's nameservers in the response
+    # See:
+    #
+    # http://docs.whmcs.com/API:Get_Clients_Domains
+    def self.get_clients_domains(params = {})
+      params.merge!(:action => 'getclientsdomains')
+      send_request(params)
+    end
   end
 end
