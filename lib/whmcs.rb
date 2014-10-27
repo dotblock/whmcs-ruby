@@ -9,6 +9,7 @@ module WHMCS
   autoload :Order,   "whmcs/order"
   autoload :Quote,   "whmcs/quote"
   autoload :Ticket,  "whmcs/ticket"
+  autoload :Product, "whmcs/product"
 
   class << self
     attr_accessor :config

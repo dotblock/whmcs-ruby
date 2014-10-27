@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    whmcs-ruby (0.0.2)
+    whmcs-ruby (0.0.1)
       crack (= 0.1.8)
 
 GEM
